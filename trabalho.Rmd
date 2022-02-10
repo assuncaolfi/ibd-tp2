@@ -16,9 +16,27 @@ knitr::opts_chunk$set(
 ```{r}
 library(dm)
 library(readr)
+library(DiagrammeR)
 ```
 
 # Projetos
+
+```{r}
+grViz(" 
+graph ER {
+	layout=neato
+	node [shape=box]; 
+	    course; institute; student;
+	node [shape=ellipse]; {node [label=name] name0; name1; name2;}
+		code; grade; number;
+	node [shape=diamond,style=filled,color=lightgrey]; 
+
+	name0 -- course;
+	code -- course;
+}
+")
+```
+
 
 ## Conceitual
 

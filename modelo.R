@@ -5,6 +5,7 @@ library(readr)
 library(rlang)
 library(tidyverse)
 source("R/gerar.R")
+set.seed(0)
 
 # Clientes --------------------------------------------------------------------
 
@@ -13,6 +14,7 @@ clientes <- tibble(
   id_cliente = 1:n_clientes,
   nome_cliente = randomNames(n_clientes, ethnicity = 4),
   passaporte_cliente = gerar_passaporte(n_clientes),
+  # tipo_cliente = gerar_tipo_cliente(n_clientes), PJ, PF
   situacao_cliente = gerar_situacao_cliente(n_clientes)
 )
 
@@ -54,14 +56,16 @@ funcionarios <- tibble(
   salario_funcionario = rexp(n_funcionarios, 2500)
 )
 
+
 # Alugueis --------------------------------------------------------------------
 
 n_alugueis <- 1000000
+n_objetos <- 3000000
 alugueis <- tibble(
   id_aluguel = 1:n_alugueis,
   id_cliente = sample(n_clientes, n_alugueis, replace = TRUE),
   id_funcionario = sample(n_funcionarios, n_alugueis, replace = TRUE),
-  id_veiculo = sample(n_veiculos, n_alugueis, replace = TRUE),
+  id_objeto = sample(n_objetos, n_alugueis, replace = TRUE),
   data_aluguel = gerar_data_aluguel(n_alugueis),
   dias_aluguel = rgeom(n_alugueis, 0.1) + 1,
   status_aluguel = TRUE, # TODO
@@ -70,20 +74,12 @@ alugueis <- tibble(
   valor_danos_aluguel = 10 # TODO
 )
 
-# Parcelas --------------------------------------------------------------------
+# Objetos ---------------------------------------------------------------------
 
-n_parcelas <- n_alugueis * 1.3
-parcelas <-
-  alugueis |>
-  bind_rows(slice_sample(alugueis, n = n_parcelas - n_alugueis)) |>
-  group_by(id_aluguel) |>
-  summarise(id_parcela = 1:n(), .groups = "drop") |>
-  arrange(id_aluguel) |>
-  mutate(
-    valor_parcela = 10, # TODO dividir valor total * 1.1
-    situacao_parcela = TRUE # TODO
-  ) |>
-  select(id_parcela, id_aluguel, everything())
+objetos <- tibble(
+  id_objeto = 1:n_objetos,
+  id_veiculo = sample(n_veiculos, n_objetos, replace = TRUE)
+)
 
 # Modelo ----------------------------------------------------------------------
 
@@ -92,7 +88,7 @@ entidades <- list(
   clientes = clientes,
   funcionarios = funcionarios,
   lojas = lojas,
-  parcelas = parcelas,
+  objetos = objetos,
   veiculos = veiculos
 )
 caminhos <-
@@ -108,13 +104,13 @@ modelo <-
   dm_add_pk(clientes, id_cliente) |>
   dm_add_pk(funcionarios, id_funcionario) |>
   dm_add_pk(lojas, id_loja) |>
-  dm_add_pk(parcelas, id_parcela) |>
+  dm_add_pk(objetos, id_objeto) |>
   dm_add_pk(veiculos, id_veiculo) |>
   dm_add_fk(alugueis, id_cliente, clientes) |>
   dm_add_fk(alugueis, id_funcionario, funcionarios) |>
-  dm_add_fk(alugueis, id_veiculo, veiculos) |>
+  dm_add_fk(alugueis, id_objeto, objetos) |>
   dm_add_fk(funcionarios, id_loja, lojas) |>
-  dm_add_fk(parcelas, id_aluguel, alugueis) |>
+  dm_add_fk(objetos, id_veiculo, veiculos) |>
   dm_add_fk(veiculos, id_loja, lojas) |>
   write_rds("dados/output/modelo.rds")
 

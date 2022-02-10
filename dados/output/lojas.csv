@@ -1,101 +1,101 @@
 id_loja,cidade_loja,pais_loja
-1,Caracas,Venezuela
-2,Santa Cruz de la Sierra,Bolivia
-3,Lima,Peru
-4,Mexico City,Mexico
-5,Caracas,Venezuela
-6,Barquisimeto,Venezuela
-7,Mexico City,Mexico
-8,Havana,Cuba
-9,São Paulo,Brazil
-10,Curitiba,Brazil
-11,Tijuana,Mexico
-12,Mexico City,Mexico
-13,Cali,Colombia
-14,Santiago,Chile
-15,Campinas,Brazil
-16,Callao,Peru
-17,Brasília,Brazil
-18,São Paulo,Brazil
-19,Cali,Colombia
-20,Port-au-Prince,Haiti
-21,Mexico City,Mexico
-22,São Paulo,Brazil
-23,Bogotá,Colombia
-24,León,Mexico
-25,São Paulo,Brazil
-26,Santiago,Chile
-27,Nezahualcóyotl,Mexico
-28,Recife,Brazil
-29,Rio de Janeiro,Brazil
+1,Curitiba,Brazil
+2,Montevideo,Uruguay
+3,Juárez,Mexico
+4,Buenos Aires,Argentina
+5,Puebla,Mexico
+6,Manaus,Brazil
+7,Rio de Janeiro,Brazil
+8,Mexico City,Mexico
+9,Mexico City,Mexico
+10,Lima,Peru
+11,Fortaleza,Brazil
+12,Lima,Peru
+13,Campinas,Brazil
+14,Quito,Ecuador
+15,Buenos Aires,Argentina
+16,Recife,Brazil
+17,Belo Horizonte,Brazil
+18,Barquisimeto,Venezuela
+19,Goiânia,Brazil
+20,São Paulo,Brazil
+21,Belo Horizonte,Brazil
+22,Barquisimeto,Venezuela
+23,São Luís,Brazil
+24,Guayaquil,Ecuador
+25,Medellín,Colombia
+26,Guadalajara,Mexico
+27,Quito,Ecuador
+28,Bogotá,Colombia
+29,Barranquilla,Colombia
 30,Lima,Peru
-31,Havana,Cuba
-32,São Paulo,Brazil
-33,Recife,Brazil
-34,São Paulo,Brazil
-35,Buenos Aires,Argentina
-36,Guadalajara,Mexico
-37,Barquisimeto,Venezuela
-38,Rosario,Argentina
-39,Mexico City,Mexico
-40,Quito,Ecuador
-41,Lima,Peru
-42,Havana,Cuba
-43,Maracaibo,Venezuela
-44,Lima,Peru
-45,Goiânia,Brazil
-46,Mexico City,Mexico
-47,Córdoba,Argentina
-48,Guadalajara,Mexico
-49,Quito,Ecuador
-50,Bogotá,Colombia
-51,Havana,Cuba
-52,Lima,Peru
-53,Caracas,Venezuela
-54,Buenos Aires,Argentina
-55,Brasília,Brazil
-56,Puebla,Mexico
-57,Campinas,Brazil
-58,Goiânia,Brazil
-59,Fortaleza,Brazil
-60,Belo Horizonte,Brazil
-61,Guadalajara,Mexico
-62,Havana,Cuba
-63,Belém,Brazil
-64,Lima,Peru
-65,Rio de Janeiro,Brazil
-66,Medellín,Colombia
-67,Lima,Peru
-68,Rio de Janeiro,Brazil
-69,Caracas,Venezuela
-70,León,Mexico
-71,Caracas,Venezuela
-72,Mexico City,Mexico
-73,Brasília,Brazil
-74,Santiago,Chile
-75,Buenos Aires,Argentina
-76,Brasília,Brazil
-77,Porto Alegre,Brazil
-78,Goiânia,Brazil
-79,Santiago,Chile
-80,Santiago,Chile
-81,Porto Alegre,Brazil
-82,Santo Domingo,Dominican Republic
-83,Port-au-Prince,Haiti
-84,Guatemala City,Guatemala
-85,Brasília,Brazil
-86,Mexico City,Mexico
-87,Goiânia,Brazil
-88,Santiago,Chile
-89,Juárez,Mexico
-90,Rio de Janeiro,Brazil
-91,Lima,Peru
-92,Cali,Colombia
-93,Bogotá,Colombia
-94,Guatemala City,Guatemala
-95,Recife,Brazil
-96,Rio de Janeiro,Brazil
-97,São Paulo,Brazil
-98,Buenos Aires,Argentina
-99,Santiago,Chile
-100,Barquisimeto,Venezuela
+31,Bogotá,Colombia
+32,Mexico City,Mexico
+33,Guatemala City,Guatemala
+34,Belo Horizonte,Brazil
+35,Guayaquil,Ecuador
+36,Nezahualcóyotl,Mexico
+37,Santiago,Chile
+38,Puebla,Mexico
+39,Guadalajara,Mexico
+40,São Paulo,Brazil
+41,São Paulo,Brazil
+42,Mexico City,Mexico
+43,Santiago,Chile
+44,León,Mexico
+45,Rio de Janeiro,Brazil
+46,São Paulo,Brazil
+47,Puebla,Mexico
+48,Ecatepec de Morelos,Mexico
+49,Caracas,Venezuela
+50,Brasília,Brazil
+51,Lima,Peru
+52,Havana,Cuba
+53,Puebla,Mexico
+54,Bogotá,Colombia
+55,São Paulo,Brazil
+56,Mexico City,Mexico
+57,Bogotá,Colombia
+58,Cali,Colombia
+59,Monterrey,Mexico
+60,Lima,Peru
+61,Cali,Colombia
+62,Manaus,Brazil
+63,Quito,Ecuador
+64,Puebla,Mexico
+65,Guayaquil,Ecuador
+66,Buenos Aires,Argentina
+67,Rio de Janeiro,Brazil
+68,León,Mexico
+69,São Paulo,Brazil
+70,Goiânia,Brazil
+71,Juárez,Mexico
+72,Campinas,Brazil
+73,Lima,Peru
+74,Lima,Peru
+75,Medellín,Colombia
+76,São Paulo,Brazil
+77,Fortaleza,Brazil
+78,Lima,Peru
+79,Lima,Peru
+80,Havana,Cuba
+81,Guayaquil,Ecuador
+82,São Paulo,Brazil
+83,Havana,Cuba
+84,Fortaleza,Brazil
+85,Santiago,Chile
+86,Santiago,Chile
+87,Nezahualcóyotl,Mexico
+88,Barquisimeto,Venezuela
+89,São Gonçalo,Brazil
+90,Quito,Ecuador
+91,Zapopan,Mexico
+92,Goiânia,Brazil
+93,Quito,Ecuador
+94,Goiânia,Brazil
+95,São Paulo,Brazil
+96,Mexico City,Mexico
+97,Salvador,Brazil
+98,Bogotá,Colombia
+99,Lima,Peru
+100,Medellín,Colombia
