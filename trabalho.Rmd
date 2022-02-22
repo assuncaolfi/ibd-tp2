@@ -1,7 +1,17 @@
 ---
-title: "TP2 IBD"
+title: Introdução a Bancos de Dados
+subtitle: Trabalho Prático 2
+author: 
+  - Gabriel Morais
+  - Hellen Garcia
+  - Lucas Sampaio
+  - Luís Assunção
+lang: pt-BR
+# header-includes:
+#  \usepackage{float}
+#  \floatplacement{figure}{H}
 output: 
-  pdf_document: 
+  bookdown::pdf_document2: 
     toc: true
   ioslides_presentation: default
 ---
@@ -17,61 +27,138 @@ knitr::opts_chunk$set(
 library(dm)
 library(readr)
 library(DiagrammeR)
+library(purrr)
 ```
+
+# Objetivo
+
+O objetivo deste projeto foi criar um banco de dados para uma **locadora de 
+veículos**, iniciando-se com o conceito, passando-se pela implementação e 
+finalizando-se com o teste de queries no banco.
 
 # Projetos
 
-```{r}
-grViz(" 
-graph ER {
-	layout=neato
-	node [shape=box]; 
-	    course; institute; student;
-	node [shape=ellipse]; {node [label=name] name0; name1; name2;}
-		code; grade; number;
-	node [shape=diamond,style=filled,color=lightgrey]; 
+## Textual
 
-	name0 -- course;
-	code -- course;
-}
-")
-```
-
+A locadora em questão possui diversas **lojas** espalhadas pelas maiores cidades
+da América Latina. Numa loja, _trabalham-se_ diversos **funcionários**. 
+Funcionários _atendem_ **clientes** de forma independente, ou seja, um mesmo
+funcionário pode atender qualquer cliente. Analogamente, um mesmo cliente pode
+ser atendido por qualquer funcionário. Clientes _alugam_ **veículos**. Em um
+mesmo contrato de aluguel, o cliente pode alugar mais de um veículo, ou seja, um
+mesmo contrato se refere a um conjunto de veículos chamado de **itens**. Cada
+veículo, por sua vez, _pertence_ a apenas uma loja da locadora.
 
 ## Conceitual
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Pela descrição textual, podemos identificar quatro entidades: os clientes, os
+funcionários, as lojas e os veículos. Os veículos, por sua vez, podem ser um 
+conjunto de veículos, e por isso possuem o atributo multivalorado chamado itens. 
+A figura \@ref(fig:diagrama-er) ilustra um diagrama entidade-relacionamento 
+da locadora. Simplificamos a figura em questão omitindo os atributos simples, 
+que serão ilustrados na próxima seção.
 
-```{r}
-modelo <- 
-  "dados" |> 
-  file.path("output", "modelo.rds") |> 
-  read_rds()
-dm_draw(modelo, view_type = "all")
+```{r diagrama-er, fig.cap = "Diagrama entidade-relacionamento."}
+"dados/output/er-diagram.txt" |> 
+  read_lines() |> 
+  paste(collapse = "\n") |> 
+  grViz()
 ```
 
 ## Lógico
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Para resolvermos as relações N:M, criamos a tabela de aluguel, que relaciona 
+os clientes, funcionários, veículos e itens. Essa última tabela, itens, foi 
+criada para resolver o multiatributo, relacionando um único aluguel a múltiplos
+veículos. Ver figura \@ref(fig:diagrama-bd).
 
-# Queries
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-## Qual o nome do cliente que alugou mais?
-
-```{sql, echo = TRUE, eval = FALSE}
-SELECT *
-FROM alugueis
-JOIN clientes
+```{r diagrama-bd, fig.cap = "Diagrama da base de dados."}
+"dados/output/db-diagram.txt" |> 
+  read_lines() |> 
+  paste(collapse = "\n") |> 
+  grViz()
 ```
 
-## Qual o número de clientes regulares?
+## Físico
 
-(situação REGULAR) e ativos (um aluguel no último ano)
+Implementamos o projeto usando o SGBD **MySQL Community Server 8.0.28**. 
+Nesta seção, documentamos todas as queries usadas para a criação e 
+implementação da base de dados. As queries foram escritas e executadas usando o 
+programa **MySQL WorkBench 8.0**, e os dados copiados foram gerados usando a 
+linguagem de programação estatística **R 4.1**.
 
-## Onde estão os carros ativos atualmente?
+As queries e códigos utiliados estão disponíveis em um 
+[repositório do GitHub](https://github.com/assuncaolfi/ibd-tp2).
 
-# Benchmarks
+### Base de dados
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```{sql, code = readLines("SQL/01-criar-database.sql"), eval = FALSE, echo = TRUE}
+```
+
+### Tabelas
+
+```{r, results = "asis"}
+tabelas <- 
+  "dados" |> 
+  file.path("output", "create-table-index.rds") |> 
+  read_rds()
+
+possibly_print_index <- function(sql_index) {
+  if (is.null(sql_index)) return(NULL)
+  c(
+    "",
+    "Declaração dos índices:",
+    "",
+    "```sql",
+    "[paste(sql_index, collapse = '\n')]",
+    "```"
+  )
+}
+
+print_table <- function(table) {
+  table |> 
+    head() |> 
+    knitr::kable(
+      format = "latex",
+      longtable = T,
+      booktabs = T
+    ) |> 
+    kableExtra::kable_styling(font_size = 7) |> 
+    paste(collapse = "\n")
+}
+
+print_table_section <- function(...) {
+  dots <- list(...)
+  strings <- c(
+    "`[name]`",
+    "",
+    "Declaração da tabela:",
+    "",
+    "```sql",
+    "[sql_table]",
+    "```",
+    "",
+    "Foram carregadas [nrow(table)] linhas.",
+    "Primeiras linhas dos dados carregados:",
+    "",
+    "[print_table(table)]",
+    possibly_print_index(dots$sql_index)
+  )
+  rlang::exec(
+    .fn = glue::glue_data, 
+    !!!strings,
+    .x = dots,
+    .open = "[",
+    .close = "]",
+    .sep = "\n"
+  )
+  
+}
+
+tabelas |> 
+  pmap_chr(print_table_section) |> 
+  paste(collapse = "\n\n") |> 
+  cat()
+```
+
+# Consultas

@@ -72,5 +72,6 @@ gerar_data_aluguel <- function(n) {
   datas <- seq(inicio, hoje, "days")
   datas |>
     sample(n, replace = TRUE) |>
-    sort()
+    sort() |>
+    as.Date()
 }

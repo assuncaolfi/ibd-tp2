@@ -1,0 +1,215 @@
+#data_model
+digraph {
+graph [rankdir=LR tooltip="Data Model" ]
+
+node [margin=0 fontcolor = "#444444" fontname = Helvetica]
+
+edge [color = "#555555", arrowsize = 1, dir = both, arrowtail = crowodot, arrowhead = teetee]
+
+pack=true
+packmode= "node"
+
+  "aluguel" [label = <<TABLE ALIGN="LEFT" BORDER="1" CELLBORDER="0" CELLSPACING="0" COLOR="#555555">
+    <TR>
+      <TD COLSPAN="3" BGCOLOR="#EFEBDD" BORDER="0"><FONT COLOR="#000000">aluguel</FONT>
+</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"><U>id_aluguel</U></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">~</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">id_cliente</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">~</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">id_funcionario</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">~</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">id_itens</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">data_aluguel</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">dias_aluguel</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">dbl</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">status_aluguel</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">lgl</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">valor_base_aluguel</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">dbl</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">valor_multa_aluguel</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">dbl</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">valor_danos_aluguel</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">dbl</TD>
+    </TR>
+  </TABLE>>, shape = "plaintext"] 
+
+  "cliente" [label = <<TABLE ALIGN="LEFT" BORDER="1" CELLBORDER="0" CELLSPACING="0" COLOR="#555555">
+    <TR>
+      <TD COLSPAN="3" BGCOLOR="#EFEBDD" BORDER="0"><FONT COLOR="#000000">cliente</FONT>
+</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"><U>id_cliente</U></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">nome_cliente</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">passaporte_cliente</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">situacao_cliente</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+  </TABLE>>, shape = "plaintext"] 
+
+  "funcionario" [label = <<TABLE ALIGN="LEFT" BORDER="1" CELLBORDER="0" CELLSPACING="0" COLOR="#555555">
+    <TR>
+      <TD COLSPAN="3" BGCOLOR="#EFEBDD" BORDER="0"><FONT COLOR="#000000">funcionario</FONT>
+</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"><U>id_funcionario</U></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">~</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">id_loja</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">nome_funcionario</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">passaporte_funcionario</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">situacao_funcionario</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">cargo_funcionario</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">salario_funcionario</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">dbl</TD>
+    </TR>
+  </TABLE>>, shape = "plaintext"] 
+
+  "itens" [label = <<TABLE ALIGN="LEFT" BORDER="1" CELLBORDER="0" CELLSPACING="0" COLOR="#555555">
+    <TR>
+      <TD COLSPAN="3" BGCOLOR="#EFEBDD" BORDER="0"><FONT COLOR="#000000">itens</FONT>
+</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"><U>id_itens</U></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">~</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">id_veiculo</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+  </TABLE>>, shape = "plaintext"] 
+
+  "loja" [label = <<TABLE ALIGN="LEFT" BORDER="1" CELLBORDER="0" CELLSPACING="0" COLOR="#555555">
+    <TR>
+      <TD COLSPAN="3" BGCOLOR="#EFEBDD" BORDER="0"><FONT COLOR="#000000">loja</FONT>
+</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"><U>id_loja</U></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">cidade_loja</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">pais_loja</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+  </TABLE>>, shape = "plaintext"] 
+
+  "veiculo" [label = <<TABLE ALIGN="LEFT" BORDER="1" CELLBORDER="0" CELLSPACING="0" COLOR="#555555">
+    <TR>
+      <TD COLSPAN="3" BGCOLOR="#EFEBDD" BORDER="0"><FONT COLOR="#000000">veiculo</FONT>
+</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"><U>id_veiculo</U></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">~</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">id_loja</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">int</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">marca_veiculo</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">modelo_veiculo</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+    <TR>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF"></TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">situacao_veiculo</TD>
+      <TD ALIGN="LEFT" BGCOLOR="#FFFFFF">chr</TD>
+    </TR>
+  </TABLE>>, shape = "plaintext"] 
+
+"aluguel"->"cliente"
+"aluguel"->"funcionario"
+"funcionario"->"loja"
+"veiculo"->"loja"
+"aluguel"->"itens"
+"itens"->"veiculo"
+}

@@ -1,1 +1,13 @@
 source("renv/activate.R")
+
+library(DBI)
+library(DiagrammeR)
+library(dm)
+library(lubridate)
+library(odbc)
+library(randomNames)
+library(readr)
+library(rlang)
+library(tidyverse)
+set.seed(0)
+source("R/gerar.R")

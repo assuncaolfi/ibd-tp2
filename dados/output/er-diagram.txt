@@ -1,0 +1,26 @@
+#data_model
+digraph {
+graph [rankdir=LR tooltip="Data Model" ]
+
+node [margin=0 fontcolor = "#444444" fontname = Helvetica, shape = rectangle]
+cliente, funcionario, veiculo, loja
+
+
+node [margin=0 fontcolor = "#444444" fontname = Helvetica, shape = doublecircle]
+item
+
+node [margin=0 fontcolor = "#444444" fontname = Helvetica, shape = diamond]
+aluga, atende, pertence, trabalha
+
+edge [color = "#555555", arrowsize = 1, fontname = Helvetica]
+
+cliente -> aluga [label = N]
+aluga -> veiculo [label = M]
+veiculo -> item
+funcionario -> atende [label = N]
+atende -> cliente [label = M]
+funcionario -> trabalha [label = N]
+trabalha -> loja [label = 1]
+veiculo -> pertence [label = N]
+pertence -> loja [label = 1]
+}
